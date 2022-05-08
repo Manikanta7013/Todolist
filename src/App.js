@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import "./App.css";
+import React, { useState } from "react";
+import Todolist from './Todolist';
+export default function App() {
+  const [datas, setDatas] = useState("");
+  const [todo,setTodo] =useState([])
+  const handler = (e) => {
+    setDatas(e.target.value);
+    
+  };
+  const submithandler=(e)=>{
+    e.preventDefault();
+const todos=[...todo,datas];
+setTodo(todos);
+setDatas("");
+  }
+  const deletehandler=(value)=>{
+    const newTodo = todo.filter((fine,index) => index !== value);
+ setTodo(newTodo);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="contain">
+      <center>
+        <h1 style={{color:"cyan"}}>TodoList</h1>
+        <form className="f" onSubmit={submithandler}>
+          <input type="text" placeholder="Enter the data" style={{color:"red"}}size="30" value={datas}onChange={handler} />&nbsp;
+          <input type="submit"  value="add" />
+        </form>
+        <Todolist text={todo} del={deletehandler} />
+      </center>
+      
     </div>
   );
 }
-
-export default App;

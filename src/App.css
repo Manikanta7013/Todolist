@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background-color: chartreuse;
+ }
+.contain{
+  background-color: black;
+  width:400px;
+  height:400px;
+  margin:auto;
+  margin-top:100px;
+  padding:30px;
+  border:2px solid rgb(20, 1, 1);
+
+}
+
