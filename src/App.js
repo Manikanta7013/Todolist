@@ -23,7 +23,7 @@ setDatas("");
       <center>
         <h1 style={{color:"cyan"}}>TodoList</h1>
         <form className="f" onSubmit={submithandler}>
-          <input type="text" placeholder="Enter daily task" style={{color:"red"}}size="30" value={datas} onChange={handler} />&nbsp;
+          <input type="text" placeholder="Add task" style={{color:"red"}}size="30" value={datas} onChange={handler} />&nbsp;
           <input type="submit"  value="add" />
         </form>
         <Todolist text={todo} del={deletehandler} />
